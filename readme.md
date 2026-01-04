@@ -126,4 +126,12 @@ Il y a aucune notions de MVC avec controller, vue (template) , libre à vous d'e
 
 - L'utilisation de git est obligatoire pour votre projet , donc faite souvent des commits avec des intitulés qui ont un sens.
 
+### LIVRABLE
+
+- Pour 17h00 ou avant , envoyer par MP sur discord l'url de votre de dépot github (ou autre service) , apres 17h00 je ne regarderai pas votre travail.
+
+On fera un debrief d'equipe le lendemain , en effet vous allez chacun faire une review de code d'une personne du groupe et écrire un compte rendu du travail vous aurez décortiqué.
+
+Bonne coding journée ;-)
+
 Durant la journée faite le maximum de choses , le but est de faire bien et de comprendre ce qu'on fait.
