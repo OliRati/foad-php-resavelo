@@ -142,4 +142,4 @@ On fera un debrief d'equipe le lendemain , en effet vous allez chacun faire une 
 
 Bonne coding journée ;-)
 
-Durant la journée faite le maximum de choses , le but est de faire bien et de comprendre ce qu'on fait.
+Durant la journée faite le maximum de choses que vous savez faire , il n'y a aucune course , le but est de faire bien et de comprendre ce qu'on fait.
