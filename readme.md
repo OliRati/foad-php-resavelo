@@ -48,7 +48,7 @@ Voici une organisation de fichiers pour ce projet , en ajouter ou en supprimer l
 ├── /includes
 │   ├── functions_velos.php       # Fonctions CRUD velos
 │   ├── functions_reservation.php # Fonctions réservations
-│   └── functions_calculation.php # Calculs tarifs/disponibilités
+│   └── functions_reservation.php # Calculs tarifs/disponibilités
 ├── /admin
 │   ├── index.php               # Tableau de bord
 │   ├── velos.php               # Liste velos
