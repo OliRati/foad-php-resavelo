@@ -18,8 +18,8 @@ if (!empty($velos)) {
                     <td><?= $velo['modele'] ?></td>
                     <td><?= $velo['image'] ?></td>
                     <td>
-                        <a href="">Remove</a>
-                        <a href="">Modify</a>
+                        <a href="<?= WEB_ROOT . "/velos/del-velos.php" ?>">Remove</a>
+                        <a href="<?= WEB_ROOT . "/velos/edit-velos.php" ?>">Edit</a>
                     </td>
                 </tr>
             <?php } ?>
