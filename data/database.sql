@@ -9,9 +9,9 @@ SET
 
 USE `resavelo`;
 
-DROP TABLE IF EXISTS `users`;
-
+DROP TABLE IF EXISTS `reservations`;
 DROP TABLE IF EXISTS `velos`;
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE
     `users` (
@@ -26,19 +26,25 @@ CREATE TABLE
 CREATE TABLE
     `velos` (
         `id_velos` int (11) NOT NULL,
-        `modele` varchar(50) NOT NULL,
-        `image` varchar(50) NOT NULL,
+        `name` varchar(50) NOT NULL,
+        `price` int (11) NOT NULL,
+        `quantity` int (11) NOT NULL,
+        `description` varchar(255) NOT NULL,
+        `image_url` varchar(50) NOT NULL,
+        `created_at` datetime NOT NULL,
         PRIMARY KEY (`id_velos`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE
     `reservations` (
-        `id_reservation` int (11) NOT NULL,
+        `id_reservations` int (11) NOT NULL,
         `id_users` int (11) NOT NULL,
         `id_velos` int (11) NOT NULL,
         `start_date` datetime NOT NULL,
         `end_date` datetime NOT NULL,
-        PRIMARY KEY (`id_reservation`),
+        `total_price` float NOT NULL,
+        `created_at` datetime NOT NULL,
+        PRIMARY KEY (`id_reservations`),
         KEY `id_users` (`id_users`),
         KEY `id_velos` (`id_velos`),
         CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id_users`) ON DELETE CASCADE,
