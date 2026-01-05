@@ -5,8 +5,8 @@
 
 // Check if local config exists and get it
 // Otherwise load a default config
-if (file_exists('env.php')) {
-    require_once 'env.php';
+if (file_exists('../config/env.php')) {
+    require_once '../config/env.php';
 } elseif (file_exists('../config/env_sample.php')) {
     require_once '../config/env_sample.php';
 } else {
@@ -33,12 +33,14 @@ $options = [
 
 function showError($title, $text)
 {
-    ?>
+?>
     <style>
         @keyframes error-blink {
             0% {
                 border: 0.4rem solid lightcoral;
-            };
+            }
+
+            ;
 
             50% {
                 border: 0.4rem solid bisque;
@@ -68,16 +70,18 @@ function showError($title, $text)
     </style>
 
     <div class="error-frame">
-        <div class="error-title"><?=  $title ?></div>
+        <div class="error-title"><?= $title ?></div>
         <div class="error-text"><?= $text ?></div>
     </div>
-    <?php
+<?php
 }
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (PDOException $error) { 
-    showError('Erreur de connexion PDO', $error->getMessage());
+} catch (PDOException $error) {
+    if (ENABLE_DEBUG === 'on') {
+        showError('Erreur de connexion PDO', $error->getMessage());
+    }
     error_log('Fatal Error connecting to database');
     die();
 }
