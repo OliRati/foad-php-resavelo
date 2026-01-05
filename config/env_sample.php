@@ -11,7 +11,7 @@ const ENABLE_DEBUG = 'on';
 /*
  * Path to the application from Web server root
  */
-const WEB_ROOT = '/devweb-php/foad-php-resavelo';
+const WEB_ROOT = '';
 
 /*
  * Absolute path to PHP server files
