@@ -33,14 +33,12 @@ $options = [
 
 function showError($title, $text)
 {
-?>
+    ?>
     <style>
         @keyframes error-blink {
             0% {
                 border: 0.4rem solid lightcoral;
             }
-
-            ;
 
             50% {
                 border: 0.4rem solid bisque;
@@ -73,7 +71,7 @@ function showError($title, $text)
         <div class="error-title"><?= $title ?></div>
         <div class="error-text"><?= $text ?></div>
     </div>
-<?php
+    <?php
 }
 
 try {

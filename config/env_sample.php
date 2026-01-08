@@ -11,7 +11,7 @@ const ENABLE_DEBUG = 'on';
 /*
  * Path to the application from Web server root
  */
-const WEB_ROOT = '';
+const WEB_ROOT = '/foad-php-resavelo';
 
 /*
  * Absolute path to PHP server files
@@ -23,7 +23,7 @@ define( 'PHP_ROOT', $_SERVER['DOCUMENT_ROOT'] . WEB_ROOT );
  */
 
 // Host name for mysql server
-const DB_HOSTNAME = 'localhost';
+const DB_HOSTNAME = 'db';
 
 // Database name 
 const DB_NAME = 'resavelo';
@@ -32,7 +32,7 @@ const DB_NAME = 'resavelo';
 const DB_USER = 'root';
 
 // Database password
-const DB_PASSWORD = '';
+const DB_PASSWORD = 'root';
 
 // Database charset to be used
 const DB_CHARSET = 'utf8mb4';
