@@ -19,7 +19,7 @@ CREATE TABLE
         `name` varchar(50) NOT NULL,
         `login` varchar(50) NOT NULL,
         `password` varchar(50) NOT NULL,
-        `role` ENUM( 'user', 'root', 'vendor'),
+        `role` ENUM( 'user', 'admin', 'vendor'),
         `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
         `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY (`id_users`)

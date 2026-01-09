@@ -12,12 +12,12 @@ SET FOREIGN_KEY_CHECKS=1;
 
 -- Users
 INSERT INTO `users` (`id_users`, `name`, `login`, `password`, `role`) VALUES
-  (1, 'Site Administrator', 'admin', 'admin123', 'root'),
-  (2, 'Vendor - Rennes', 'vendor_rennes', 'vend2026', 'vendor'),
-  (3, 'Vendor - Nantes', 'vendor_nantes', 'vendnantes', 'vendor'),
-  (4, 'Alice Durand', 'alice', 'alicepwd', 'user'),
-  (5, 'Bruno Leclerc', 'bruno', 'brunopwd', 'user'),
-  (6, 'Celine Moreau', 'celine', 'celinepwd', 'user');
+  (1, 'Site Administrator', 'admin', MD5('admin123'), 'admin'),
+  (2, 'Vendor - Rennes', 'vendor_rennes', MD5('vend2026'), 'vendor'),
+  (3, 'Vendor - Nantes', 'vendor_nantes', MD5('vendnantes'), 'vendor'),
+  (4, 'Alice Durand', 'alice', MD5('alicepwd'), 'user'),
+  (5, 'Bruno Leclerc', 'bruno', MD5('brunopwd'), 'user'),
+  (6, 'Celine Moreau', 'celine', MD5('celinepwd'), 'user');
 
 -- Velos (columns: id_velos, name, price, quantity, description, image_url, created_at)
 INSERT INTO `velos` (`id_velos`, `name`, `price`, `quantity`, `description`, `image_url`, `created_at`) VALUES

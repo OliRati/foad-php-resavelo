@@ -1,24 +1,22 @@
 <?php
 require '../config/db_connect.php';
-require '../includes/functions_user.php';
+require PHP_ROOT.'/includes/functions_auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $name = nettoyer($_POST['name']);
     $password = trim($_POST['password']);
 
-    // This is for testing of an admin profile
-    $_SESSION['logged'] = true;
-    $_SESSION['role'] = 'admin';
-
-    redirect('/admin/index.php');
-    exit;
+    $ret = login_user($pdo, $name, $password);
+    if ($ret['success'] === true) {
+        redirect('/admin/index.php');
+        exit;
+    }
 }
 
 if (isset($_SESSION['logged']) && $_SESSION['logged']) {
     // You are logged in => do log out
-    $_SESSION = [];
-    session_destroy();
-    session_unset();
+
+    logout_user();
 
     redirect("/public/index.php");
     exit;
