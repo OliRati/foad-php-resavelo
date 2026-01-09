@@ -40,6 +40,7 @@ function login_user($pdo, $login, $password)
     }
 
     $_SESSION['logged'] = true;
+    $_SESSION['id_users'] = $user['id_users'];
     $_SESSION['name'] = $user['name'];
     $_SESSION['role'] = $user['role'];
 

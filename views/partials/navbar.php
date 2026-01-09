@@ -13,9 +13,15 @@
                 </a>
             </div>
             <div class="menu-item">
+                <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true && $_SESSION['role'] === 'admin') { ?>
                 <a href="<?= WEB_ROOT . "/users/list-users.php" ?>">
                     Utilisateurs
                 </a>
+            <?php } elseif (isset($_SESSION['logged']) && $_SESSION['logged'] === true) { ?>
+                <a href="<?= WEB_ROOT . "/profil/edit-profil.php?id=".$_SESSION['id_users'] ?>">
+                    Profil
+                </a>
+            <?php } ?>
             </div>
             <div class="menu-item">
                 <a href="<?= WEB_ROOT . "/reservations/list-reservations.php" ?>">
@@ -31,7 +37,10 @@
                                     WEB_ROOT . '/assets/img/no_accounts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg' ?>" alt="">
                 </a>
             </div>
-            <?php if ($_SESSION['role'] === 'admin') { ?>
+            <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) { ?>
+                <div><?= $_SESSION['name'] ?></div>
+            <?php } ?>
+            <?php if (isset($_SESSION['logged']) && $_SESSION['role'] === 'admin') { ?>
                 <div class="admin">Administration</div>
             <?php } ?>
         </div>

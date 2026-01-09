@@ -30,6 +30,6 @@ $velo = getVelo($pdo, $idVelos);
 if ($velo) {
     $title_text = "Editer un vélo";
     $submit_text = "Modifier";
-    require PHP_ROOT . "/views/velos/velos.php";
+    require PHP_ROOT . "/views/velos/velo-view.php";
     die();
 }

@@ -28,4 +28,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
 $title_text = "Ajouter un vélo";
 $submit_text = "Ajouter";
-require PHP_ROOT . "/views/velos/velos.php";
+require PHP_ROOT . "/views/velos/velo-view.php";

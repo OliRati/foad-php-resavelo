@@ -20,8 +20,8 @@ function getUser($pdo, $id)
     $state = $stmt->execute([':id' => $id]);
 
     if ($state) {
-        $velo = $stmt->fetch();
-        return $velo;
+        $user = $stmt->fetch();
+        return $user;
     }
 
     return [];
@@ -39,8 +39,7 @@ function addUser($pdo, $user)
 
 function updateUser($pdo, $user)
 {
-    $sql = "UPDATE users SET name = :name, login = :login, role =:role
-            WHERE id_users = :id_users";
+    $sql = "UPDATE users SET name = :name, login = :login WHERE id_users = :id_users";
     $stmt = $pdo->prepare($sql);
     $state = $stmt->execute($user);
 

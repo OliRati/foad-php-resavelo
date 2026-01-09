@@ -11,11 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     $state = updateUser($pdo, $user);
     if ($state) {
-        if ($_SESSION['id_users'] === intval($user['id_users'])) {
-            $_SESSION['name'] = $user['name'];
-        }
-
-        redirect("/users/list-users.php");
+        $_SESSION['name'] = $user['name'];
+        redirect("/velos/list-velos.php");
         die();
     }
 }
@@ -31,6 +28,6 @@ $user = getUser($pdo, $idUsers);
 if ($user) {
     $title_text = "Editer un utilisateur";
     $submit_text = "Modifier";
-    require PHP_ROOT . "/views/users/user-view.php";
+    require PHP_ROOT . "/views/profil/profil-view.php";
     die();
 }
