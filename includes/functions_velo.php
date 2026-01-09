@@ -13,7 +13,7 @@ function getAllVelos($pdo)
     return [];
 }
 
-function getVeloById($pdo, $id)
+function getVelo($pdo, $id)
 {
     $sql = "SELECT * FROM velos WHERE id_velos = :id";
     $stmt = $pdo->prepare($sql);
@@ -27,31 +27,21 @@ function getVeloById($pdo, $id)
     return [];
 }
 
-function addVelo($pdo, $data)
+function addVelo($pdo, $velo)
 {
-    $sql = "INSERT INTO velos (modele, image) VALUES (:modele, :image)";
+    $sql = "INSERT INTO velos (name, price, quantity, description, image_url) VALUES (:name, :price, :quantity, :description, :image_url )";
     $stmt = $pdo->prepare($sql);
-    $state = $stmt->execute(
-        [
-            ':modele' => $data['modele'],
-            ':image' => $data['image']
-        ]
-    );
+    $state = $stmt->execute($velo);
 
     return $state;
 }
 
-function updateVelo($pdo, $id, $data)
+function updateVelo($pdo, $velo)
 {
-    $sql = "UPDATE velos SET modele = :modele, image = :image WHERE id_velos = :id";
+    $sql = "UPDATE velos SET name = :name, price = :price, quantity = :quantity, description = :description, image_url = :image_url
+            WHERE id_velos = :id_velos";
     $stmt = $pdo->prepare($sql);
-    $state = $stmt->execute(
-        [
-            ':modele' => $data['modele'],
-            ':image' => $data['image'],
-            ':id' => $id
-        ]
-    );
+    $state = $stmt->execute($velo);
 
     return $state;
 }

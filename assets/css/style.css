@@ -6,7 +6,7 @@
 /* Ensure footer stay at botom on small pages */
 
 body {
-    color : white;
+    color: white;
     min-height: 100vh;
     background-color: #303030;
 }
@@ -31,10 +31,118 @@ table {
     margin: 0 auto;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid;
 }
 
-td, th {
+td,
+th {
     padding: 1rem;
+}
+
+.title {
+    text-align: center;
+    margin: 1.5rem auto;
+    font-size: 2.5rem;
+    color: antiquewhite;
+}
+
+/*
+ * Header CSS style
+ */
+
+header {
+    width: 100%;
+    background-color: #333;
+    padding: 1rem;
+}
+
+.logo {
+    h1 {
+        border: 2px solid lightgreen;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        margin-right: 2rem;
+    }
+}
+
+.menu {
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    a {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+        text-decoration: none;
+        color: #44ffa7;
+        margin-right: 1rem;
+    }
+}
+
+/*
+ * Forms CSS
+ */
+
+form {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    label {
+        display: inline-block;
+        margin-right: 1rem;
+        width: 10rem;
+    }
+
+    input {
+        margin: 0.5rem 0;
+        width: 40rem;
+        padding: 0.5rem;
+    }
+
+    input[type="submit"] {
+        width: fit-content;
+        padding: 1rem 2rem;
+        background-color: lightsalmon;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    input[type="submit"]:hover {
+        background-color: lightcoral;
+        cursor: pointer;
+    }
+}
+
+.button {
+    width: fit-content;
+    padding: 1rem 2rem;
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: lightcoral;
 }
