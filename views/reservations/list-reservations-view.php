@@ -3,7 +3,7 @@ require PHP_ROOT . '/views/partials/head.php';
 
 if (!empty($reservations)) {
 ?>
-    <h1 class="title">Liste des utilisateurs</h1>
+    <h1 class="title">Liste des réservations</h1>
     <table>
         <thead>
             <tr>
