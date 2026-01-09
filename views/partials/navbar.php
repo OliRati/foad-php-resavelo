@@ -32,7 +32,7 @@
         <div class="status">
             <div class="avatar">
                 <a href="<?= WEB_ROOT . '/login/login.php' ?>">
-                    <img src="<?= $_SESSION['logged'] ?
+                    <img src="<?= isset($_SESSION['logged']) && $_SESSION['logged'] === true ?
                                     WEB_ROOT . '/assets/img/person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg' :
                                     WEB_ROOT . '/assets/img/no_accounts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg' ?>" alt="">
                 </a>

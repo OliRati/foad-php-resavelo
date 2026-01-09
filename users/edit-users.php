@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $user['id_users'] = nettoyer(($_POST['id_users']));
     $user['name'] = nettoyer($_POST['name']);
     $user['login'] = nettoyer($_POST['login']);
+    $user['password'] = trim($_POST['password']);
+    $user['role'] = nettoyer($_POST['role']);
 
     $state = updateUser($pdo, $user);
     if ($state) {

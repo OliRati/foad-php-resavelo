@@ -39,13 +39,17 @@ function addUser($pdo, $user)
 
 function updateUser($pdo, $user)
 {
-    $sql = "UPDATE users SET name = :name, login = :login WHERE id_users = :id_users";
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] === true && $_SESSION['role'] === 'admin') {
+        $sql = "UPDATE users SET name = :name, login = :login, password = :password, role = :role WHERE id_users = :id_users";
+    } else {
+        $sql = "UPDATE users SET name = :name, login = :login WHERE id_users = :id_users";
+    }
+
     $stmt = $pdo->prepare($sql);
     $state = $stmt->execute($user);
-
+    
     return $state;
 }
-
 function deleteUser($pdo, $id)
 {
     $sql = "DELETE FROM users WHERE id_users = :id";

@@ -144,7 +144,8 @@ form {
         width: 10rem;
     }
 
-    input {
+    input,
+    select {
         margin: 0.5rem 0;
         width: 40rem;
         padding: 0.5rem;

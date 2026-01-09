@@ -30,7 +30,7 @@ if (!empty($reservations)) {
                     <td><?= $reservation['created_at'] ?></td>
                     <td><?= $reservation['updated_at'] ?></td>
                     <td>
-                        <a href="<?= WEB_ROOT . "/reservations/del-reservations.php?id=" . $reservation['id_reservations'] ?>">Remove</a>
+                        <a href="<?= WEB_ROOT . "/reservations/del-reservations.php?id=" . $reservation['id_reservations'] ?>"  onclick="return confirm('Etes vous certain de vouloir supprimer cette reservation ?');">Remove</a>
                         <a href="<?= WEB_ROOT . "/reservations/edit-reservations.php?id=" . $reservation['id_reservations'] ?>">Edit</a>
                     </td>
                 </tr>

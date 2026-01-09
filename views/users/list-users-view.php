@@ -26,7 +26,7 @@ if (!empty($users)) {
                     <td><?= $user['created_at'] ?></td>
                     <td><?= $user['updated_at'] ?></td>
                     <td>
-                        <a href="<?= WEB_ROOT . "/users/del-users.php?id=" . $user['id_users'] ?>">Remove</a>
+                        <a href="<?= WEB_ROOT . "/users/del-users.php?id=" . $user['id_users'] ?>"  onclick="return confirm('Etes vous certain de vouloir supprimer cet utilisateur ?');">Remove</a>
                         <a href="<?= WEB_ROOT . "/users/edit-users.php?id=" . $user['id_users'] ?>">Edit</a>
                     </td>
                 </tr>

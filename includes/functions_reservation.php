@@ -20,8 +20,8 @@ function getReservation($pdo, $id)
     $state = $stmt->execute([':id' => $id]);
 
     if ($state) {
-        $velo = $stmt->fetch();
-        return $velo;
+        $reservation = $stmt->fetch();
+        return $reservation;
     }
 
     return [];
@@ -29,8 +29,8 @@ function getReservation($pdo, $id)
 
 function addReservation($pdo, $reservation)
 {
-    $sql = "INSERT INTO reservation (name, login, password, role)
-            VALUES (:name, :login, :password, :role )";
+    $sql = "INSERT INTO reservations (id_users, id_velos, start_date, end_date, total_price)
+            VALUES (:id_users, :id_velos, :start_date, :end_date, :total_price )";
     $stmt = $pdo->prepare($sql);
     $state = $stmt->execute($reservation);
 
@@ -39,7 +39,7 @@ function addReservation($pdo, $reservation)
 
 function updateReservation($pdo, $reservation)
 {
-    $sql = "UPDATE reservations SET name = :name, login = :login, role =:role
+    $sql = "UPDATE reservations SET id_users = :id_users, id_velos = :id_velos, start_date =:start_date, end_date = :end_date, total_price = :total_price
             WHERE id_reservations = :id_reservations";
     $stmt = $pdo->prepare($sql);
     $state = $stmt->execute($reservation);
