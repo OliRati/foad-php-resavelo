@@ -4,7 +4,7 @@ require '../includes/functions_user.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $name = nettoyer($_POST['name']);
-    $password = trim($_POST('password'));
+    $password = trim($_POST['password']);
 
     // This is for testing of an admin profile
     $_SESSION['logged'] = true;
