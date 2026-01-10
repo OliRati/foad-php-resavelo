@@ -11,6 +11,7 @@
             </div>
             <div class="velos-card-description"><?= $velo['description'] ?></div>
             <div class="velos-card-price"><?=  $velo['price'] ?>€ / jour</div>
+            <div class="button">Réserver</div>
         </div>
     <?php } ?>
 </div>

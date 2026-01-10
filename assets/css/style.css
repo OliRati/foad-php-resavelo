@@ -250,5 +250,6 @@ form {
     .velos-card-price {
         font-size: 2rem;
         color: lightpink;
+        margin: 0.5rem;
     }
 }
