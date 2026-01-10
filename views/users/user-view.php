@@ -30,13 +30,12 @@
         </select>
     </div>
     <input type="submit" name="submit" value="<?= $submit_text ?>">
-    <?php if (!empty($errors)) {
-        foreach ($errors as $error) {
-    ?>
-            <p><?= $error ?></p>
-    <?php
-        }
-    }
-    ?>
+    <?php if (!empty($errors)) { ?>
+        <div class="error">
+            <?php foreach ($errors as $error) { ?>
+                <p><?= $error ?></p>
+            <?php } ?>
+        </div>
+    <?php } ?>
 </form>
 <?php require '../views/partials/tail.php'; ?>

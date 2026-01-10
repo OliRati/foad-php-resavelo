@@ -7,6 +7,8 @@ session_start();
 
 // Check if local config exists and get it
 // Otherwise load a default config
+$docroot = $_SERVER['DOCUMENT_ROOT'];
+
 if (file_exists('../config/env.php')) {
     require '../config/env.php';
 } elseif (file_exists('../config/env_sample.php')) {

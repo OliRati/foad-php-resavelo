@@ -49,6 +49,13 @@ th {
     color: antiquewhite;
 }
 
+.subtitle {
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    color: antiquewhite;
+}
+
 /*
  * Header CSS style
  */
@@ -107,10 +114,10 @@ header {
 
     .avatar {
         background-color: gray;
-        padding: 1rem;
+        padding: 0.4rem;
         border-radius: 50%;
-        width: 2.2rem;
-        height: 2.2rem;
+        width: 3rem;
+        height: 3rem;
 
         display: flex;
         justify-content: center;
@@ -187,4 +194,61 @@ form {
 .button:hover {
     cursor: pointer;
     background-color: lightcoral;
+}
+
+/*
+ * Display Errors CSS
+ */
+
+.error {
+    color: lightcoral;
+    font-size: 1.2rem;
+}
+
+/*
+ * Velos cards
+ */
+
+.velos-cards-container {
+    max-width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem auto;
+}
+
+.velos-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    max-width: 20rem;
+    background-color: #444;
+    border: solid 2px #555;
+    border-radius: 0.5rem;
+
+    .velos-card-title {
+        color: antiquewhite;
+        font-size: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .velos-card-image {
+        width: 100%;
+
+        img {
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .velos-card-description {
+        color: lightblue;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+    }
+
+    .velos-card-price {
+        font-size: 2rem;
+        color: lightpink;
+    }
 }

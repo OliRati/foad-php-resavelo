@@ -13,13 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     $password_confirm = trim($_POST['password_confirm']);
 
-    if ($user['password'] !== $password_confirm)
-        $errors[] = 'Les mots de passe ne correspondent pas !';
-    else {
-        $state = addUser($pdo, $user);
-        if ($state) {
-            redirect("/users/list-users.php");
-            die();
+    if (empty($user['name']) || empty($user['login']) || empty($user['password']) || empty($user['role'])) {
+        $errors[] = 'Tous les champs doivent être renseignés';
+    } else {
+        if ($user['password'] !== $password_confirm)
+            $errors[] = 'Les mots de passe ne correspondent pas !';
+        else {
+            $state = addUser($pdo, $user);
+            if ($state) {
+                redirect("/users/list-users.php");
+                die();
+            }
         }
     }
 } else {

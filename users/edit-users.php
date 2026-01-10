@@ -11,14 +11,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $user['password'] = trim($_POST['password']);
     $user['role'] = nettoyer($_POST['role']);
 
-    $state = updateUser($pdo, $user);
-    if ($state) {
-        if ($_SESSION['id_users'] === intval($user['id_users'])) {
-            $_SESSION['name'] = $user['name'];
-        }
+    $password_confirm = trim($_POST['password_confirm']);
 
-        redirect("/users/list-users.php");
-        die();
+    if (empty($user['name']) || empty($user['login']) || empty($user['password']) || empty($user['role'])) {
+        $errors[] = 'Tous les champs doivent être renseignés';
+    } else {
+        if ($user['password'] !== $password_confirm)
+            $errors[] = 'Les mots de passe ne correspondent pas !';
+        else {
+            $state = updateUser($pdo, $user);
+            if ($state) {
+                if ($_SESSION['id_users'] === intval($user['id_users'])) {
+                    $_SESSION['name'] = $user['name'];
+                }
+
+                redirect("/users/list-users.php");
+                die();
+            }
+        }
     }
 }
 
