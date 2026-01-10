@@ -14,32 +14,39 @@
                         Velos
                     </a>
                 </div>
-            <?php } ?>
 
-            <div class="menu-item">
-                <?php if (is_admin()) { ?>
+                <div class="menu-item">
                     <a href="<?= WEB_ROOT . "/users/list-users.php" ?>">
                         Utilisateurs
                     </a>
-                <?php } elseif (is_logged_in()) { ?>
-                    <a href="<?= WEB_ROOT . "/profil/edit-profil.php?id=" . $_SESSION['id_users'] ?>">
-                        Profil
-                    </a>
-                <?php } ?>
-            </div>
-            
-            <div class="menu-item">
-                <?php if (is_admin()) { ?>
+                </div>
+
+                <div class="menu-item">
                     <a href="<?= WEB_ROOT . "/reservations/list-reservations.php" ?>">
                         Reservations
                     </a>
-                <?php } elseif (is_logged_in()) { ?>
+                </div>
+            <?php } elseif (is_logged_in()) { ?>
+                <div class="menu-item">
+                    <a href="<?= WEB_ROOT . "/profil/edit-profil.php?id=" . $_SESSION['id_users'] ?>">
+                        Profil
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a href="<?= WEB_ROOT . "/reservations/list-reservations.php" ?>">
                         Mes réservations
                     </a>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } else { ?>
+                <div class="menu-item">
+                    <a href="<?= WEB_ROOT . "/login/register.php" ?>">
+                        Inscription
+                    </a>
+                </div>
+            <?php } ?>
         </div>
+
         <div class="status">
             <div class="avatar">
                 <a href="<?= WEB_ROOT . '/login/login.php' ?>">

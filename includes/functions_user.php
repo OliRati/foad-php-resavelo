@@ -29,6 +29,10 @@ function getUser($pdo, $id)
 
 function addUser($pdo, $user)
 {
+    // Hash password
+    // $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+    $user['password'] = md5($user['password']);
+
     $sql = "INSERT INTO users (name, login, password, role)
             VALUES (:name, :login, :password, :role )";
     $stmt = $pdo->prepare($sql);
@@ -47,7 +51,7 @@ function updateUser($pdo, $user)
 
     $stmt = $pdo->prepare($sql);
     $state = $stmt->execute($user);
-    
+
     return $state;
 }
 function deleteUser($pdo, $id)

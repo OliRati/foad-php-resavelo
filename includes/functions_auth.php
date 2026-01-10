@@ -37,7 +37,7 @@ function login_user($pdo, $login, $password)
     }
 
     if (md5($password) !== $user['password']) {
-    // if (!password_verify($password, $user['password'])) {
+        // if (!password_verify($password, $user['password'])) {
         return [
             'success' => false,
             'message' => 'Identifiant incorrect !'
@@ -54,7 +54,7 @@ function login_user($pdo, $login, $password)
         'message' => 'Connexion réussie.'
     ];
 }
-
+/*
 function register_user($pdo, $username, $email, $password)
 {
     if (empty($username) || empty($email) || empty($password)) {
@@ -136,3 +136,4 @@ function update_user($pdo, $username, $email)
         'message' => 'Erreur lors de la mise à jour'
     ];
 }
+*/
