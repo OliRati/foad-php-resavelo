@@ -2,14 +2,26 @@
 
 function getAllReservations($pdo)
 {
-    $sql = "SELECT * FROM reservations";
-    $stmt = $pdo->prepare($sql);
-    $state = $stmt->execute();
-    if ($state) {
-        $reservations = $stmt->fetchAll();
-        return $reservations;
-    }
+    if (is_admin()) {
+        $sql = "SELECT * FROM reservations";
+        $stmt = $pdo->prepare($sql);
+        $state = $stmt->execute();
 
+        if ($state) {
+            $reservations = $stmt->fetchAll();
+            return $reservations;
+        }
+    } elseif (is_logged_in()) {
+        $sql = "SELECT * FROM reservations WHERE id_users = :id_users";
+        $stmt = $pdo->prepare($sql);
+        $state = $stmt->execute([':id_users' => $_SESSION['id_users']]);
+
+        if ($state) {
+            $reservations = $stmt->fetchAll();
+            return $reservations;
+        }
+    }
+    
     return [];
 }
 

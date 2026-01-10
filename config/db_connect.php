@@ -18,6 +18,8 @@ if (file_exists('../config/env.php')) {
 }
 
 require PHP_ROOT.'/includes/functions.php';
+require PHP_ROOT . '/includes/functions_auth.php';
+
 
 /*
  * Connect to the database service

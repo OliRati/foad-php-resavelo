@@ -1,6 +1,5 @@
 <?php
 require '../config/db_connect.php';
-require PHP_ROOT.'/includes/functions_auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $name = nettoyer($_POST['name']);
