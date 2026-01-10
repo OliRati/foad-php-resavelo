@@ -25,6 +25,12 @@
         <label for="image_url">Image URL</label>
         <input type="text" name="image_url" id="image_url" value="<?= $velo['image_url'] ?>">
     </div>
+    <div>
+        <label for="image_file">Fichier</label>
+        <div class="input-file-container">
+            <input type="file" name="image_file" id="image_file">
+        </div>
+    </div>
     <input type="submit" name="submit" value="<?= $submit_text ?>">
 </form>
 
