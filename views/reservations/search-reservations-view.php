@@ -1,4 +1,4 @@
-<?php require '../views/partials/head.php'; ?>
+<?php require PHP_ROOT . '/views/partials/head.php'; ?>
 
 <div class="action-container">
     <h1 class="title">Recherchez un velos sur ResaVelo</h1>
@@ -35,4 +35,4 @@
     <?php } ?>
 </div>
 
-<?php require '../views/partials/tail.php'; ?>
+<?php require PHP_ROOT . '/views/partials/tail.php'; ?>

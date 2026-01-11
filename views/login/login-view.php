@@ -1,4 +1,4 @@
-<?php require '../views/partials/head.php'; ?>
+<?php require PHP_ROOT . '/views/partials/head.php'; ?>
 <h1 class="title">Identifiez-vous</h1>
 
 <form method="post">
@@ -13,4 +13,4 @@
     <input type="submit" name="submit" value="Valider">
 </form>
 
-<?php require '../views/partials/tail.php'; ?>
+<?php require PHP_ROOT . '/views/partials/tail.php'; ?>

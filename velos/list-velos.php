@@ -1,6 +1,6 @@
 <?php
 require '../config/db_connect.php';
-require '../includes/functions_velo.php';
+require PHP_ROOT . '/includes/functions_velo.php';
 
 $velos = getAllVelos($pdo);
 

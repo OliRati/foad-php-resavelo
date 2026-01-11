@@ -1,6 +1,6 @@
 <?php
 require '../config/db_connect.php';
-require '../includes/functions_reservation.php';
+require PHP_ROOT . '/includes/functions_reservation.php';
 
 $reservations = getAllReservations($pdo);
 

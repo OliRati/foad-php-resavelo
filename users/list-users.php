@@ -1,6 +1,6 @@
 <?php
 require '../config/db_connect.php';
-require '../includes/functions_user.php';
+require PHP_ROOT . '/includes/functions_user.php';
 
 $users = getAllUsers($pdo);
 

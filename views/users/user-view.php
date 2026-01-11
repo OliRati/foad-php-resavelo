@@ -1,4 +1,5 @@
-<?php require '../views/partials/head.php'; ?>
+<?php require PHP_ROOT . '/views/partials/head.php'; ?>
+
 <h1 class="title"><?= $title_text ?></h1>
 
 <form method="post">
@@ -38,4 +39,5 @@
         </div>
     <?php } ?>
 </form>
-<?php require '../views/partials/tail.php'; ?>
+
+<?php require PHP_ROOT . '/views/partials/tail.php'; ?>

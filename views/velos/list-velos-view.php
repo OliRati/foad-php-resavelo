@@ -44,5 +44,6 @@ if (!empty($velos)) {
 <div class="button">
     <a href="<?= WEB_ROOT . "/velos/add-velos.php" ?>">Ajouter un vélo</a>
 </div>
+
 <?php
 require PHP_ROOT . '/views/partials/tail.php';

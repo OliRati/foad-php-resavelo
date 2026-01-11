@@ -1,4 +1,4 @@
-<?php require '../views/partials/head.php'; ?>
+<?php require PHP_ROOT . '/views/partials/head.php'; ?>
 
 <h1 class="title"><?= $title_text ?></h1>
 
@@ -29,4 +29,4 @@
     <input type="submit" name="submit" value="<?= $submit_text ?>">
 </form>
 
-<?php require '../views/partials/tail.php'; ?>
+<?php require PHP_ROOT . '/views/partials/tail.php'; ?>

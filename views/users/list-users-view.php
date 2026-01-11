@@ -40,5 +40,6 @@ if (!empty($users)) {
 <div class="button">
     <a href="<?= WEB_ROOT . "/users/add-users.php" ?>">Ajouter un utilisateur</a>
 </div>
+
 <?php
 require PHP_ROOT . '/views/partials/tail.php';
