@@ -26,6 +26,12 @@
                         Reservations
                     </a>
                 </div>
+
+                <div class="menu-item">
+                    <a href="<?= WEB_ROOT . "/login/login.php" ?>">
+                        Déconnexion
+                    </a>
+                </div>
             <?php } elseif (is_logged_in()) { ?>
                 <div class="menu-item">
                     <a href="<?= WEB_ROOT . "/profil/edit-profil.php?id=" . $_SESSION['id_users'] ?>">
@@ -42,6 +48,12 @@
                 <div class="menu-item">
                     <a href="<?= WEB_ROOT . "/login/register.php" ?>">
                         Inscription
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="<?= WEB_ROOT . "/login/login.php" ?>">
+                        Connexion
                     </a>
                 </div>
             <?php } ?>
