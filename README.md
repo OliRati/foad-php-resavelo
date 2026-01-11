@@ -11,7 +11,7 @@ Projet PHP pour gérer la location de vélos de ville (catalogue public + admini
 
 **Installation rapide**
 1. Cloner le dépôt dans votre environnement de travail.
-2. Copier `config/env_sample.php` → `config/env.php` et renseigner les identifiants de la base de données.
+2. Copier `config/env_example.php` → `config/env.php` et renseigner les identifiants de la base de données.
 3. Importer la base de données :
 
 ```bash
@@ -35,7 +35,7 @@ php -S localhost:8000 -t public
 - `data/` : dump SQL pour peupler la base.
 
 Fichiers utiles :
-- [config/env_sample.php](config/env_sample.php) — exemple de configuration.
+- [config/env_example.php](config/env_example.php) — exemple de configuration.
 - [config/db_connect.php](config/db_connect.php) — connexion PDO.
 - [data/database.sql](data/database.sql) — schéma + données de test.
 

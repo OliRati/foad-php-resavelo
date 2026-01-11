@@ -11,8 +11,8 @@ $docroot = $_SERVER['DOCUMENT_ROOT'];
 
 if (file_exists('../config/env.php')) {
     require '../config/env.php';
-} elseif (file_exists('../config/env_sample.php')) {
-    require '../config/env_sample.php';
+} elseif (file_exists('../config/env_example.php')) {
+    require '../config/env_example.php';
 } else {
     die("No configuration file found !");
 }
