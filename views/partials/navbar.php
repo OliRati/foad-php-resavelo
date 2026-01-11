@@ -2,7 +2,7 @@
     <div class="menu-frame">
         <div class="menu">
             <div class="logo">
-                <a href="<?= WEB_ROOT . "/public/index.php" ?>"
+                <a href="<?= WEB_ROOT . "/reservations/search-reservations.php" ?>"
                     style="text-decoration: none; color: #b0dcb0;">
                     <h1 style="margin-bottom: 0; color: #b0dcb0; font-size: 2rem; letter-spacing: 0.2rem;">ResaVelo</h1>
                 </a>

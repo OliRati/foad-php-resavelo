@@ -17,7 +17,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged']) {
 
     logout_user();
 
-    redirect("/public/index.php");
+    redirect("/reservations/search-reservations.php");
     exit;
 }
 

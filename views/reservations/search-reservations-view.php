@@ -1,3 +1,5 @@
+<?php require '../views/partials/head.php'; ?>
+
 <div class="action-container">
     <h1 class="title">Recherchez un velos sur ResaVelo</h1>
     <form method="post">
@@ -32,3 +34,5 @@
         </div>
     <?php } ?>
 </div>
+
+<?php require '../views/partials/tail.php'; ?>

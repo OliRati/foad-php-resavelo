@@ -1,4 +1,5 @@
 <?php require '../views/partials/head.php'; ?>
+
 <h1 class="title"><?= $title_text ?></h1>
 
 <form method="post">

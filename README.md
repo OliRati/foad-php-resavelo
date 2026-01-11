@@ -1,63 +1,88 @@
-# RESAVELO — Location de vélos (FOAD)
+# foad-php-resavelo
 
-Projet PHP pour gérer la location de vélos de ville (catalogue public + administration).
+Description
+-----------
+Application PHP simple de gestion de vélos et de réservations (CRUD vélos, utilisateurs, réservations) accompagnée d'un système d'authentification.
 
-**But** : afficher un catalogue de vélos, permettre la réservation par plage de dates, et fournir un espace d'administration pour gérer vélos et réservations.
+Cette application sert d'exemple pédagogique pour gérer des réservations de vélos avec une organisation légère en MVC-ish (pages + includes + vues).
 
-**Prérequis**
-- PHP 7.4+ (module PDO)
-- MySQL / MariaDB
-- Serveur web (Apache, Nginx) ou `php -S` pour test local
+Structure du projet
+-------------------
+- `index.php` : page racine (front controller basique).
+- `public/` : fichiers accessibles publiquement (alternative pour le webroot).
+- `config/` : fichiers de configuration et `db_connect.php`.
+- `data/` : dumps SQL (ex. `database.sql`, `database_fill.sql`).
+- `includes/` : fonctions PHP réutilisables (`functions_auth.php`, `functions_velo.php`, `functions_reservation.php`, `functions_user.php`, `functions_disponibilites.php`, `functions.php`).
+- `views/` : fragments HTML et vues organisées par fonctionnalité (`login/`, `profil/`, `reservations/`, `users/`, `velos/`).
+- `login/`, `profil/`, `reservations/`, `users/`, `velos/` : pages d'accès direct pour les opérations CRUD et listes.
+- `assets/` : CSS, JS et images.
 
-**Installation rapide**
-1. Cloner le dépôt dans votre environnement de travail.
-2. Copier `config/env_example.php` → `config/env.php` et renseigner les identifiants de la base de données.
+Fonctionnement (aperçu)
+-----------------------
+- L'authentification se situe dans `includes/functions_auth.php` et les vues liées sous `views/login/`.
+- Les opérations CRUD (Création, Lecture, Mise à jour, Suppression) pour les vélos, utilisateurs et réservations sont réparties entre les dossiers `velos/`, `users/`, `reservations/` et utilisent les fonctions communes dans `includes/`.
+- Les vues HTML sont dans `views/` et sont incluses depuis les pages de chaque section. Le fichier `includes/functions.php` contient des helpers partagés.
+
+Prérequis
+---------
+- PHP 7.4+ ou 8.x avec extensions PDO/MySQL activées.
+- MySQL / MariaDB.
+- Un serveur web (Apache/Nginx) ou le serveur PHP intégré pour développement.
+
+Installation et mise en route
+----------------------------
+1. Cloner le dépôt :
+
+```bash
+git clone <repo-url>
+cd foad-php-resavelo
+```
+
+2. Copier le fichier d'exemple d'environnement et éditer les paramètres de connexion à la base :
+
+```bash
+cp env_example.php env.php
+# Éditer env.php pour renseigner DB_HOST, DB_USER, DB_PASS, DB_NAME
+```
+
 3. Importer la base de données :
 
 ```bash
-mysql -u USER -p DATABASE_NAME < data/database.sql
+mysql -u <user> -p < database/data/database.sql
+```
+ainsi qu'un ensemble de données cohérentes
+```bash
+mysql -u <user> -p < database/data/database_fill.sql
 ```
 
-4. Vérifier la connexion PDO dans [config/db_connect.php](config/db_connect.php).  
-5. Ouvrir le projet dans un navigateur via votre serveur web ou via :
+4. Vérifier `config/db_connect.php` si votre projet s'appuie sur ce fichier pour la connexion.
+
+5. Lancer en local (mode développement) :
 
 ```bash
+# depuis la racine du projet, servir le dossier public/ comme webroot
 php -S localhost:8000 -t public
+# ou configurer votre hôte virtuel Apache/Nginx en pointant vers le dossier public/ (recommandé)
 ```
 
-**Structure principale du projet**
-- `config/` : configuration et connexion PDO.
-- `includes/` : fonctions PHP (velos, réservations, auth, calculs).
-- `public/` : pages accessibles au public (catalogue, formulaire de réservation, mes réservations).
-- `admin/` : interface d'administration (gestion vélos, réservations).
-- `views/` : templates/partial pour affichage.
-- `assets/` : CSS, JS et images.
-- `data/` : dump SQL pour peupler la base.
+6. Accéder à l'application via `http://localhost:8000/`
+Logger vous avec un compte utilisateur ou administrateur pour accéder aux différentes fonctionnalités.
 
-Fichiers utiles :
-- [config/env_example.php](config/env_example.php) — exemple de configuration.
-- [config/db_connect.php](config/db_connect.php) — connexion PDO.
-- [data/database.sql](data/database.sql) — schéma + données de test.
+Notes de déploiement
+--------------------
+- En production, configurez le serveur web pour pointer le DocumentRoot sur le dossier `public/` si vous souhaitez isoler les fichiers d'application non publics.
+- Protégez `env.php` et les fichiers de configuration contre l'accès direct.
 
-**Pages importantes**
-- Page publique d'accueil / catalogue : [public/index.php](public/index.php)
-- Formulaire de réservation : [public/reservation_form.php](public/reservation_form.php)
-- Mes réservations (client) : [public/mes_reservations.php](public/mes_reservations.php)
-- Administration : [admin/index.php](admin/index.php), [admin/velos.php](admin/velos.php), [admin/reservations.php](admin/reservations.php)
+Où modifier et étendre
+----------------------
+- Logique métier et accès DB : `includes/*.php`.
+- Templates HTML / partials : `views/partials/`.
+- Pages d'administration et formulaires : dossiers `velos/`, `users/`, `reservations/`.
 
-**Fonctions clés (dans `includes/`)**
-- Vélos : `getAllVelos($pdo)`, `getVeloById($pdo,$id)`, `addVelo()`, `updateVelo()`, `deleteVelo()`
-- Réservations : `createReservation()`, `getAllReservations()`, `updateReservationStatus()`, `cancelReservation()`, `checkAvailability()`
-- Calculs : `calculatePrice($price_per_day, $start_date, $end_date)`
+Support et contributions
+------------------------
+Ce projet est un exemple. Pour améliorer : créer des tests, ajouter validation côté serveur, préparer un système d'ACL et sécuriser les entrées utilisateur.
 
-Conseil : adapter la logique de disponibilité (`checkAvailability`) pour exclure les réservations qui se chevauchent.
-
-**Configuration & sécurité**
-- Ne jamais committer vos identifiants réels : utilisez `config/env.php` en local uniquement.
-- Pour la production, configurer HTTPS et restreindre l'accès au dossier `admin/` (authentification + rôles).
-
-**Tests manuels rapides**
-1. Importer `data/database.sql` pour le shema.
-   et `data/database_fill.sql` pour un ensemble de données permettant de tester le projet.
-2. Ouvrir `public/index.php` et vérifier l'affichage du catalogue.
-3. Tester la réservation via `public/reservation_form.php` puis vérifier la création en base et l'affichage dans `public/mes_reservations.php`.
+Fichier ajouté/modifié
+----------------------
+Le fichier README.md à la racine a été ajouté/mis à jour pour décrire le projet, sa structure et les étapes d'installation.
