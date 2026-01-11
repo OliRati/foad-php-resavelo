@@ -59,3 +59,42 @@ function deleteVelo($pdo, $id)
 
     return $state;
 }
+
+// Liste l'ensemble des velos disponibles à la location
+// en tenant compte du nombre de velos disponibles par modèle
+// et des reservations en cours
+function getAvailableVelos($pdo, $start_date, $end_date)
+{
+    $sql = "SELECT
+              v.id_velos,
+              v.name,
+              v.price,
+              v.quantity,
+              v.description,
+              v.image_url,
+              COALESCE(r.booked, 0) AS booked,
+              (v.quantity - COALESCE(r.booked, 0)) AS available
+            FROM velos v
+            LEFT JOIN (
+              SELECT id_velos, COUNT(*) AS booked
+              FROM reservations
+              WHERE start_date <= :end_date
+                AND end_date   >= :start_date
+              GROUP BY id_velos
+            ) r ON v.id_velos = r.id_velos
+            WHERE (v.quantity - COALESCE(r.booked, 0)) > 0
+            ORDER BY v.name;";
+
+    $stmt = $pdo->prepare($sql);
+    $state = $stmt->execute(
+        [
+            ':start_date' => $start_date,
+            ':end_date' => $end_date
+        ]
+    );
+
+    if ($state) {
+        $velosAvail = $stmt->fetchAll();
+        return $velosAvail;
+    }
+}

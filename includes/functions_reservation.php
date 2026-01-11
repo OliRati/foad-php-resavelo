@@ -21,7 +21,7 @@ function getAllReservations($pdo)
             return $reservations;
         }
     }
-    
+
     return [];
 }
 
