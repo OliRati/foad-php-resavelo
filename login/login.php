@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     $ret = login_user($pdo, $name, $password);
     if ($ret['success'] === true) {
-        redirect('/admin/index.php');
+        redirect('/public/index.php');
         exit;
     }
 }
