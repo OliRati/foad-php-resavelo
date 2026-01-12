@@ -33,7 +33,7 @@
                 echo "<p>Quantité : " . $velo['quantity'] . " - Réservés : " . $velo['booked'] . " - Disponibles : " . $velo['available'] . "</p>";
             } ?>
             <div class="button">
-                <a href="<?= WEB_ROOT . "/public/reservation_form.php?id=" . $velo['id_velos'] ?>">
+                <a href="<?= WEB_ROOT . "/reservations/register-reservations.php?id=" . $velo['id_velos'] ?>">
                     Réserver
                 </a>
             </div>
