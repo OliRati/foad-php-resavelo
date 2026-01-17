@@ -28,9 +28,9 @@ function redirect($url)
 /* Cleanup datas for safety */
 function nettoyer($dataParam)
 {
-    $data = trim($dataParam);
-    $date = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    return $data;
+    $trimed_data = trim($dataParam);
+    $cleaned_data = htmlspecialchars($trimed_data, ENT_QUOTES, 'UTF-8');
+    return $cleaned_data;
 }
 
 /**
